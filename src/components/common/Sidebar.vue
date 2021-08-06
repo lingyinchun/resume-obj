@@ -72,23 +72,51 @@ export default {
       return this.$route.path
     },
     routerData() {
-      let data = this.$store.state.permission.routes
-      if(!data || data.length==0){
-        data = [{
-          "id": 0,
-          "parentId": 0,
-          "resourceCode": null,
-          "resourceType": 1,
-          "resourceName": "系统首页",
-          "url": "/",
-          "icon": "settings",
-          "sortNumber": 1,
-          "isEnable": true,
-          "createTime": "2020-12-18 14:13:27",
-          }]
+      // let data = this.$store.state.permission.routes
+      let data = []
+      if(!data || data.length===0){
+        data = [
+          {
+            "id": 0,
+            "parentId": 0,
+            "resourceCode": null,
+            "resourceType": 1,
+            "resourceName": "系统首页",
+            "url": "/",
+            "icon": "settings",
+            "sortNumber": 1,
+            "isEnable": true,
+            "createTime": "2020-12-18 14:13:27",
+            childCategoryList: [
+              {
+                "id": 1,
+                "parentId": 0,
+                "resourceCode": null,
+                "resourceType": 1,
+                "resourceName": "系统首页",
+                "url": "/",
+                "icon": "settings",
+                "sortNumber": 1,
+                "isEnable": true,
+                "createTime": "2020-12-18 14:13:27",
+              },{
+                "id": 2,
+                "parentId": 0,
+                "resourceCode": null,
+                "resourceType": 1,
+                "resourceName": "BaseCharts",
+                "url": "/BaseCharts",
+                "icon": "settings",
+                "sortNumber": 1,
+                "isEnable": true,
+                "createTime": "2020-12-18 14:13:27",
+              },
+            ]
+          }
+        ]
       }
 
-      // console.log('routerData', this.$store.state.permission.routes)
+      console.log('routerData', data)
       return data
     }
   },

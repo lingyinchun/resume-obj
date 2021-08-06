@@ -5,45 +5,6 @@ import Home from '@/components/common/Home.vue'
 Vue.use(Router);
 
 export const constantRoutes = [
-  // {
-  //   path: '/',
-  //   component: () => import( /* webpackChunkName: "home" */ '../components/common/Home.vue'),
-  //   meta: {
-  //     title: '-'
-  //   },
-  //   children: [
-  //     {
-  //       path: '/',
-  //       component: () => import( /* webpackChunkName: "dashboard" */ '../page/Icon.vue'),
-  //       meta: {
-  //         title: '系统首页'
-  //       }
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: '/vip/userGrowth',
-  //   component: () => import(/* webpackChunkName: "tabs" */ '../components/common/Home.vue'),
-  //   meta: { title: '查看明细' },
-  //   children: [
-  //     {
-  //       path: '/vip/userGrowth',
-  //       component: () => import('../page/vip/userGrowth.vue'),
-  //       meta: { title: '查看明细' },
-  //     }
-  //   ]
-  // },
-  {
-    path: '/login',
-    component: () => import( /* webpackChunkName: "login" */ '../page/Login.vue'),
-    meta: {
-      title: '登录'
-    }
-  }
-]
-
-export const endRoutes = [
-  // 404 page must be placed at the end !!!
   {
     path: '/',
     component: () => import( /* webpackChunkName: "home" */ '../components/common/Home.vue'),
@@ -59,154 +20,11 @@ export const endRoutes = [
         }
       },
       {
-        path: '/vip/userGrowth',
-        component: () => import( /* webpackChunkName: "dashboard" */ '../page/vip/userGrowth.vue'),
+        path: '/BaseCharts',
+        component: () => import( /* webpackChunkName: "dashboard" */ '../page/BaseCharts.vue'),
         meta: {
-          title: '查看明细',
-          id: 'a1',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/vip/integral/info',
-        component: () => import( /* webpackChunkName: "dashboard" */ '../page/vip/integral/info.vue'),
-        meta: {
-          title: '积分明细',
-          id: 'a1',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/vip/userInfo',
-        component: () => import( /* webpackChunkName: "dashboard" */ '../page/vip/userInfo.vue'),
-        meta: {
-          title: '用户信息',
-          id: 'vipUserInfo',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/cms/advert',
-        component: () => import('../page/cms/advert.vue'),
-        meta: {
-          title: '广告设置',
-          id: 'cmsAdvert',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/goods/category/edit',
-        component: () => import('../page/goods/category/edit.vue'),
-        meta: {
-          title: '编辑类目',
-          id: 'goodsCategoryEdit',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/order/detail',
-        component: () => import('../page/order/detail.vue'),
-        meta: {
-          title: '订单详情',
-          id: 'orderDetail',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/marketing/coupon/couponForm',
-        component: () => import('../page/marketing/coupon/couponForm.vue'),
-        meta: {
-          title: '优惠券',
-          id: 'coupon',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/marketing/coupon/couponRecord',
-        component: () => import('../page/marketing/coupon/couponRecord.vue'),
-        meta: {
-          title: '优惠券记录',
-          id: 'coupon',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/marketing/promotionCp/couponForm',
-        component: () => import('../page/marketing/promotionCp/couponForm.vue'),
-        meta: {
-          title: '促销活动',
-          id: 'promotionCp',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/marketing/promotionGive/couponForm',
-        component: () => import('../page/marketing/promotionGive/couponForm.vue'),
-        meta: {
-          title: '活动详情',
-          id: 'promotionGive',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/marketing/promotionRecord',
-        component: () => import('../page/marketing/promotionRecord.vue'),
-        meta: {
-          title: '促销数据',
-          id: 'promotionRecord',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/goods/goodsManage/goodsInfoTab',
-        component: () => import('../page/goods/goodsManage/goodsInfoTab.vue'),
-        meta: {
-          title: '商品详情',
-          id: 'goodsInfo',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/setting/freightSet/freightForm',
-        component: () => import('../page/setting/freightSet/freightForm'),
-        meta: {
-          title: '运费模板详情',
-          id: 'freightForm',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/setting/emailMessage/emailTemplate',
-        component: () => import('../page/setting/emailMessage/emailTemplate'),
-        meta: {
-          title: '邮件模板详情',
-          id: 'emailTemplate',
-          type: 1,
-          iframeUrl: ''
-        },
-      },
-      {
-        path: '/setting/taskModule/taskInfo',
-        component: () => import('../page/setting/taskModule/taskInfo'),
-        meta: {
-          title: '任务详情',
-          id: 'taksInfo',
-          type: 1,
-          iframeUrl: ''
-        },
+          title: 'BaseCharts'
+        }
       },
       {
         path: '*',
@@ -217,7 +35,42 @@ export const endRoutes = [
         hidden: true
       },
     ]
+  },
+  {
+    path: '/login',
+    component: () => import( /* webpackChunkName: "login" */ '../page/Login.vue'),
+    meta: {
+      title: '登录'
+    }
   }
+]
+
+export const endRoutes = [
+  // // 404 page must be placed at the end !!!
+  // {
+  //   path: '/',
+  //   component: () => import( /* webpackChunkName: "home" */ '../components/common/Home.vue'),
+  //   meta: {
+  //     title: '系统首页'
+  //   },
+  //   children: [
+  //     {
+  //       path: '/',
+  //       component: () => import( /* webpackChunkName: "dashboard" */ '../page/VueEditor.vue'),
+  //       meta: {
+  //         title: '系统首页'
+  //       }
+  //     },
+  //     {
+  //       path: '*',
+  //       component: () => import( /* webpackChunkName: "404" */ '../page/404.vue'),
+  //       meta: {
+  //         title: '404'
+  //       },
+  //       hidden: true
+  //     },
+  //   ]
+  // }
 ]
 
 const router = new Router({

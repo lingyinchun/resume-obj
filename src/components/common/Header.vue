@@ -1,44 +1,40 @@
 <template>
   <div class="header">
     <!-- 折叠按钮 -->
-    <div class="collapse-btn" @click="collapseChage">
-      <i v-if="!collapse" class="el-icon-s-fold"></i>
-      <i v-else class="el-icon-s-unfold"></i>
-    </div>
-    <div class="logo">史泰博后台管理系统</div>
+<!--    <div class="collapse-btn" @click="collapseChage">-->
+<!--      <i v-if="!collapse" class="el-icon-s-fold"></i>-->
+<!--      <i v-else class="el-icon-s-unfold"></i>-->
+<!--    </div>-->
+    <div class="logo">1</div>
     <div class="platform">
-      <!-- 用户名下拉菜单 -->
-      <el-dropdown trigger="click" @command="handleCommand">
-                <span class="el-dropdown-link">
-                    {{ platformName }}
-                    <i class="el-icon-caret-bottom"></i>
-                </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item divided command="stbcn">{{ platformName }}</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+      <router-link to='/'>
+        <el-button type="text" style="margin-right: 10px">首页</el-button>
+      </router-link>
+      <router-link to='/BaseCharts'>
+        <el-button type="text">BaseCharts</el-button>
+      </router-link>
     </div>
     <div class="header-right">
       <div class="header-user-con">
         <!-- 全屏显示 -->
-        <!--                <div class="btn-fullscreen" @click="handleFullScreen">-->
-        <!--                    <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">-->
-        <!--                        <i class="el-icon-rank"></i>-->
-        <!--                    </el-tooltip>-->
-        <!--                </div>-->
+        <div class="btn-fullscreen" @click="handleFullScreen">
+          <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
+            <i class="el-icon-rank"></i>
+          </el-tooltip>
+        </div>
         <!-- 消息中心 -->
-        <!--                <div class="btn-bell">-->
-        <!--                    <el-tooltip-->
-        <!--                        effect="dark"-->
-        <!--                        :content="message?`有${message}条未读消息`:`消息中心`"-->
-        <!--                        placement="bottom"-->
-        <!--                    >-->
-        <!--                        <router-link to="/tabs">-->
-        <!--                            <i class="el-icon-bell"></i>-->
-        <!--                        </router-link>-->
-        <!--                    </el-tooltip>-->
-        <!--                    <span class="btn-bell-badge" v-if="message"></span>-->
-        <!--                </div>-->
+        <div class="btn-bell">
+          <el-tooltip
+              effect="dark"
+              :content="message?`有${message}条未读消息`:`消息中心`"
+              placement="bottom"
+          >
+            <router-link to="/tabs">
+              <i class="el-icon-bell"></i>
+            </router-link>
+          </el-tooltip>
+          <span class="btn-bell-badge" v-if="message"></span>
+        </div>
         <!-- 用户头像 -->
         <div class="user-avator">
           <img src="../../assets/img/login-bg.jpg"/>
@@ -57,7 +53,8 @@
       </div>
     </div>
 
-    <el-dialog v-if="open" title="修改密码" :visible.sync="open" width="460px" append-to-body :close-on-click-modal="false" :close-on-press-escape="false">
+    <el-dialog v-if="open" title="修改密码" :visible.sync="open" width="460px" append-to-body :close-on-click-modal="false"
+               :close-on-press-escape="false">
       <el-form ref="pwdForm" :model="pwdForm" :rules="rules" label-width="80px">
         <el-row>
           <el-col :span="24">
@@ -89,7 +86,7 @@
 </template>
 <script>
 import bus from '../common/bus';
-import {updateUserPwd} from "@/api/system/user";
+// import {updateUserPwd} from "@/api/system/user";
 
 export default {
   data() {
@@ -116,7 +113,7 @@ export default {
       },
       rules: {
         userPwd: [
-          { required: true, message: '请输入密码', trigger: 'blur' },
+          {required: true, message: '请输入密码', trigger: 'blur'},
           {
             min: 6,
             max: 20,
@@ -125,7 +122,7 @@ export default {
           },
         ],
         resetPassword: [
-          { required: true, validator: resetPassword, trigger: 'blur' },
+          {required: true, validator: resetPassword, trigger: 'blur'},
         ],
       }
     };
@@ -147,9 +144,9 @@ export default {
     }
   },
   created() {
-    if(this.$store.getters.userInfo && this.$store.getters.userInfo.id){
+    if (this.$store.getters.userInfo && this.$store.getters.userInfo.id) {
       this.pwdForm.id = this.$store.getters.userInfo.id
-    }else{
+    } else {
       this.pwdForm.id = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')).id : ''
     }
   },
@@ -161,7 +158,7 @@ export default {
           localStorage.removeItem('userInfo');
           this.$router.push('/login');
         })
-      }else{
+      } else {
         this.open = true
       }
     },
@@ -200,12 +197,12 @@ export default {
     submitPwdForm() {
       this.$refs['pwdForm'].validate((valid) => {
         if (valid) {
-          updateUserPwd(this.pwdForm).then((response) => {
-            if (response.code === 200) {
-              this.$baseMessage('修改成功', 'success')
-              this.open = false
-            }
-          })
+          // updateUserPwd(this.pwdForm).then((response) => {
+          //   if (response.code === 200) {
+          //     this.$baseMessage('修改成功', 'success')
+          //     this.open = false
+          //   }
+          // })
         }
       })
     }
@@ -224,7 +221,7 @@ export default {
   width: 100%;
   height: 70px;
   font-size: 22px;
-  color: #fff;
+  color: #3c3c3c;
 }
 
 .collapse-btn {
@@ -275,11 +272,11 @@ export default {
   height: 8px;
   border-radius: 4px;
   background: #f56c6c;
-  color: #fff;
+  color: #3c3c3c;
 }
 
 .btn-bell .el-icon-bell {
-  color: #fff;
+  color: #3c3c3c;
 }
 
 .user-name {
@@ -288,6 +285,7 @@ export default {
 
 .user-avator {
   margin-left: 20px;
+  border: 1px solid #000000;
 }
 
 .user-avator img {
@@ -298,7 +296,7 @@ export default {
 }
 
 .el-dropdown-link {
-  color: #fff;
+  color: #3c3c3c;
   cursor: pointer;
 }
 

@@ -3,10 +3,10 @@
  */
 
 import Vue from 'vue'
-import {
-  loginByUsername,
-  logout,
-} from '@/api/user'
+// import {
+//   loginByUsername,
+//   logout,
+// } from '@/api/user'
 import {
   getSessionId,
   removeSessionId,
@@ -64,31 +64,31 @@ const actions = {
    * @param {*} userInfo
    */
   async loginByUsername({ commit }, userInfo) {
-    const { data } = await loginByUsername(userInfo)
-    console.log('data====',data)
-    const sessionId = data.token
-    const id = data.id
-    commit('setUserInfo', data)
-    sessionStorage.setItem('userId', id)
-    localStorage.setItem('userInfo', JSON.stringify(data))
-    if (sessionId) {
-      commit('setSessionId', sessionId)
-      commit('setId', id)
-      commit('setPermissions', ['sys:menu:down'])
-
-      const hour = new Date().getHours()
-      const thisTime =
-        hour < 8
-          ? '早上好'
-          : hour <= 11
-          ? '上午好'
-          : hour <= 13
-          ? '中午好'
-          : hour < 18
-          ? '下午好'
-          : '晚上好'
-      Vue.prototype.$baseNotify(`欢迎登录`, `${thisTime}！`)
-    }
+    // const { data } = await loginByUsername(userInfo)
+    // console.log('data====',data)
+    // const sessionId = data.token
+    // const id = data.id
+    // commit('setUserInfo', data)
+    // sessionStorage.setItem('userId', id)
+    // localStorage.setItem('userInfo', JSON.stringify(data))
+    // if (sessionId) {
+    //   commit('setSessionId', sessionId)
+    //   commit('setId', id)
+    //   commit('setPermissions', ['sys:menu:down'])
+    //
+    //   const hour = new Date().getHours()
+    //   const thisTime =
+    //     hour < 8
+    //       ? '早上好'
+    //       : hour <= 11
+    //       ? '上午好'
+    //       : hour <= 13
+    //       ? '中午好'
+    //       : hour < 18
+    //       ? '下午好'
+    //       : '晚上好'
+    //   Vue.prototype.$baseNotify(`欢迎登录`, `${thisTime}！`)
+    // }
   },
 
   /**
@@ -127,13 +127,13 @@ const actions = {
     // })
   },
   async logout({ commit, dispatch }) {
-    sessionStorage.removeItem('userId')
-    localStorage.removeItem('userInfo')
-    commit('resetUser')
-    dispatch('permission/resetPermission', false, { root: true })
-    await logout()
-    removeSessionId()
-    await resetRouter()
+    // sessionStorage.removeItem('userId')
+    // localStorage.removeItem('userInfo')
+    // commit('resetUser')
+    // dispatch('permission/resetPermission', false, { root: true })
+    // await logout()
+    // removeSessionId()
+    // await resetRouter()
   }
 }
 export default { namespaced: true, state, mutations, actions }

@@ -7,6 +7,9 @@
       </el-breadcrumb>
     </div>
     <div class="container">
+      <el-button>无权限</el-button>
+      这里有个权限按钮:
+      <el-button v-permission="['sys:role']">有权限</el-button>
       <el-tabs v-model="activeName">
         <el-tab-pane label="Vue-Quill-Editor" name="first">
           <div class="plugins-tips">
@@ -27,11 +30,14 @@
 </template>
 
 <script>
-import MyVueEditor from "@/components/MyVueEditor";
-import MyTinymce from "@/components/MyTinymce";
+import MyVueEditor from "@/components/MyVueEditor"
+import MyTinymce from "@/components/MyTinymce"
+import permission from '@/directive/permission/index'
+import { deepClone } from '@/utils/util'
 
 export default {
   name: 'editor',
+  directives: { permission },
   components: {
     MyVueEditor,MyTinymce
   },
@@ -44,6 +50,7 @@ export default {
   },
   methods: {
     submit() {
+      console.log(deepClone(this.editorVal))
       console.log(this.editorVal)
       var str = '安抚${asAAfasf}按时发${fff}顺${fasfa'
       var reg = /(?<=\$\{)[a-zA-Z]+(?=\})/g;

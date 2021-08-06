@@ -64,17 +64,9 @@ const actions = {
                     // return ;
                     // const detail = { ...res.data }
                     let data = res.data
-                    // data.unshift({
-                    //   name: '首页',
-                    //   index: '/',
-                    //   title: '首页',
-                    //   icon: 'el-icon-s-home'
-                    // });
-                    // console.log(data)
                     let data2 = deepClone(data)
-                    // console.log('菜单', data2)
 
-                    let accessedRoutes = filterAsyncRoutes(data) //路由列表
+                    let accessedRoutes = filterAsyncRoutes([]) //路由列表
                     accessedRoutes = accessedRoutes.concat(endRoutes)
                     commit('SET_ROUTES', data2) //菜单列表
                     commit('SET_ISROUTES', true)
