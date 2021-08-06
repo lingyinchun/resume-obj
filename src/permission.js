@@ -10,8 +10,8 @@ import { getSessionId } from '@/utils/SessionId'
 router.beforeEach(async (to, from, next) => {
   // console.log(to)
   NProgress.start()
-  let title = '史泰博后台管理系统';
-  if(to.meta.title) {
+  let title = '瀚德后台管理系统';
+  if (to.meta.title) {
     title = title + '-' + to.meta.title;
   }
   document.title = title;

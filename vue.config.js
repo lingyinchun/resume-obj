@@ -4,6 +4,7 @@ module.exports = {
   assetsDir: 'static',
   productionSourceMap: false,
   devServer: {
+    port: 3366,
     proxy: {
       '/mall-api': {
         target: `http://mallapi-uat.stbchina.cn`, //

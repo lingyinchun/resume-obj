@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "npm run serve",
     "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve --open",
     "build": "vue-cli-service build"
   },
   "dependencies": {
