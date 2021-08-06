@@ -16,6 +16,8 @@ router.beforeEach(async (to, from, next) => {
   }
   document.title = title;
   const role = getSessionId();
+  next();
+  return
   // 未登录 且 login
   if (!role && to.path === '/login') {
     NProgress.done()
@@ -35,13 +37,13 @@ router.beforeEach(async (to, from, next) => {
         return
       }
     }
-    if (!store.getters['is_routes']) {
-      const accessRoutes = await store.dispatch('permission/generateRoutes')
-      // console.log('accessRoutes====', accessRoutes)
-      router.addRoutes(accessRoutes)
-      // console.log('最终路由', router)
-      next({ ...to, replace: true })
-    }
+    // if (!store.getters['is_routes']) {
+    //   const accessRoutes = await store.dispatch('permission/generateRoutes')
+    //   // console.log('accessRoutes====', accessRoutes)
+    //   router.addRoutes(accessRoutes)
+    //   // console.log('最终路由', router)
+    //   next({ ...to, replace: true })
+    // }
 
     // 简单的判断IE10及以下不进入富文本编辑器，该组件不兼容
     if (navigator.userAgent.indexOf('MSIE') > -1 && to.path === '/editor') {

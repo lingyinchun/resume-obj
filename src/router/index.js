@@ -6,6 +6,13 @@ Vue.use(Router);
 
 export const constantRoutes = [
   {
+    path: '/login',
+    component: () => import( /* webpackChunkName: "login" */ '../page/Login.vue'),
+    meta: {
+      title: '登录'
+    }
+  },
+  {
     path: '/',
     component: () => import( /* webpackChunkName: "home" */ '../components/common/Home.vue'),
     meta: {
@@ -36,13 +43,7 @@ export const constantRoutes = [
       },
     ]
   },
-  {
-    path: '/login',
-    component: () => import( /* webpackChunkName: "login" */ '../page/Login.vue'),
-    meta: {
-      title: '登录'
-    }
-  }
+
 ]
 
 export const endRoutes = [

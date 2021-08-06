@@ -130,7 +130,7 @@ export default {
   computed: {
     username() {
       let userInfo = JSON.parse(localStorage.getItem('userInfo'));
-      return userInfo.nickName ? userInfo.nickName : this.name;
+      return userInfo ? userInfo.nickName : this.name;
     },
     platformName() {
       let userInfo = JSON.parse(localStorage.getItem('userInfo'));

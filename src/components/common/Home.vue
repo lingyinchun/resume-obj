@@ -77,13 +77,13 @@ export default {
         })
       },
       listenPage() {
-        window.onbeforeunload = function (e) {
-          e = e || window.event;
-          if (e) {
-            e.returnValue = '关闭提示aaaa';
-          }
-          return '关闭提示aaaa';
-        };
+        // window.onbeforeunload = function (e) {
+        //   e = e || window.event;
+        //   if (e) {
+        //     e.returnValue = '关闭提示aaaa';
+        //   }
+        //   return '关闭提示aaaa';
+        // };
       }
     }
 };
