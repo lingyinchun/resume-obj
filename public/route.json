@@ -1,0 +1,102 @@
+{
+  "code": 200,
+  "message": "Success",
+  "data": [
+    {
+      "id": 32,
+      "parentId": 0,
+      "resourceCode": null,
+      "resourceType": 1,
+      "resourceName": "系统管理",
+      "url": "/system",
+      "icon": "settings",
+      "sortNumber": 1,
+      "isEnable": true,
+      "createTime": "2020-12-18 14:13:27",
+      "childCategoryList": [
+        {
+          "id": 33,
+          "parentId": 32,
+          "resourceCode": null,
+          "resourceType": 1,
+          "resourceName": "菜单管理",
+          "url": "/system/menu",
+          "icon": "tagfill",
+          "sortNumber": 1,
+          "isEnable": true,
+          "createTime": "2020-12-18 14:13:50",
+          "childCategoryList": null
+        },
+        {
+          "id": 34,
+          "parentId": 32,
+          "resourceCode": null,
+          "resourceType": 1,
+          "resourceName": "用户管理",
+          "url": "/system/user",
+          "icon": "peoplefill",
+          "sortNumber": 1,
+          "isEnable": true,
+          "createTime": "2020-12-18 14:14:29",
+          "childCategoryList": null
+        },
+        {
+          "id": 36,
+          "parentId": 32,
+          "resourceCode": null,
+          "resourceType": 1,
+          "resourceName": "角色管理",
+          "url": "/system/role",
+          "icon": "attentionfill",
+          "sortNumber": 1,
+          "isEnable": true,
+          "createTime": "2020-12-23 09:24:02",
+          "childCategoryList": null
+        },
+        {
+          "id": 38,
+          "parentId": 32,
+          "resourceCode": null,
+          "resourceType": 3,
+          "resourceName": "饿了么",
+          "url": "https://element.eleme.cn/#/zh-CN/component/tabs",
+          "icon": "attentionfill",
+          "iframeUrl": "https://element.eleme.cn/#/zh-CN/component/tabs",
+          "sortNumber": 1,
+          "isEnable": true,
+          "createTime": "2020-12-23 13:46:08",
+          "childCategoryList": null
+        },
+        {
+          "id": 39,
+          "parentId": 32,
+          "resourceCode": null,
+          "resourceType": 3,
+          "resourceName": "百度啊",
+          "url": "https://www.baidu.com",
+          "icon": "attentionfill",
+          "iframeUrl": "https://www.baidu.com",
+          "sortNumber": 1,
+          "isEnable": true,
+          "createTime": "2020-12-23 13:46:08",
+          "childCategoryList": null
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "parentId": 0,
+      "resourceCode": null,
+      "resourceType": 1,
+      "resourceName": "哈哈哈",
+      "url": "/",
+      "icon": "attentionfill",
+      "sortNumber": 1,
+      "isEnable": true,
+      "createTime": "2020-12-21 15:13:39",
+      "childCategoryList": null
+    }
+  ],
+  "success": true,
+  "timestamp": 1608776565002
+}

@@ -1,0 +1,27 @@
+.el-button{
+  font-weight: normal;
+}
+.close-sty {
+  float: right;
+  margin-top: 8px;
+  z-index: 3;
+
+  &:hover {
+    color: #ff4400;
+    font-weight: 900;
+  }
+}
+.span_tip{
+  font-size: 12px;
+  line-height: 18px;
+  color: #999999;
+  display: inline-block;
+}
+
+.el-pagination{
+  text-align: right;
+  margin-top: 15px;
+}
+.width360{
+  width: 360px;
+}
