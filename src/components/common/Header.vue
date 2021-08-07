@@ -1,21 +1,59 @@
+<style lang="scss" scoped>
+.el-menu--horizontal {
+    border-bottom: none !important;
+}
+.el-menu-item {
+    color: #3c3c3c !important;
+    font-size: 16px;
+    height: 70px;
+    line-height: 70px;
+}
+.el-menu--horizontal > .el-menu-item {
+    height: 70px;
+    line-height: 70px;
+}
+.el-menu--horizontal > .el-menu-item.is-active {
+    border-bottom: 3px solid #409eff;
+    height: 70px;
+    line-height: 70px;
+}
+.submenu-box-title {
+    height: 70px;
+    line-height: 70px;
+    color: #3c3c3c !important;
+    font-size: 16px;
+}
+</style>
 <template>
   <div class="header">
-    <!-- 折叠按钮 -->
-    <!--    <div class="collapse-btn" @click="collapseChage">-->
-    <!--      <i v-if="!collapse" class="el-icon-s-fold"></i>-->
-    <!--      <i v-else class="el-icon-s-unfold"></i>-->
-    <!--    </div>-->
-    <div class="logo">1</div>
+    <div class="logo">
+      {{ title }}
+    </div>
     <div class="platform">
-      <router-link to='/'>
-        <el-button
-          type="text"
-          style="margin-right: 10px"
-        >首页</el-button>
-      </router-link>
-      <router-link to='/BaseCharts'>
-        <el-button type="text">BaseCharts</el-button>
-      </router-link>
+      <el-menu
+        :default-active="activeIndex"
+        class="el-menu-demo"
+        mode="horizontal"
+        active-text-color="#409EFF"
+        @select="handleSelect"
+      >
+        <el-menu-item
+          v-for="item in menu"
+          :key="item.key"
+          :index="item.key"
+        >
+          {{item.label}}
+        </el-menu-item>
+        <el-submenu index="other">
+          <template slot="title">
+            <span class="submenu-box-title">
+              其他
+            </span>
+          </template>
+          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-2">选项2</el-menu-item>
+        </el-submenu>
+      </el-menu>
     </div>
     <div class="header-right">
       <div class="header-user-con">
@@ -50,7 +88,7 @@
         </div>
         <!-- 用户头像 -->
         <div class="user-avator">
-          <img src="../../assets/img/login-bg.jpg" />
+          <img src="../../assets/img/th.jpg" />
         </div>
         <!-- 用户名下拉菜单 -->
         <el-dropdown
@@ -133,8 +171,7 @@
 </template>
 <script>
 import bus from '../common/bus';
-// import {updateUserPwd} from "@/api/system/user";
-
+import defaultSetting from '@/core/defaultSettings'
 export default {
   data() {
     const resetPassword = (rule, value, callback) => {
@@ -149,9 +186,12 @@ export default {
       }
     }
     return {
+      activeIndex: 'home',
+      menu: defaultSetting.menu,
       collapse: false,
       fullscreen: false,
-      name: '瀚德',
+      title: defaultSetting.title,
+      name: defaultSetting.title,
       message: 2,
       open: false,
       // 表单参数
@@ -198,6 +238,9 @@ export default {
     }
   },
   methods: {
+    handleSelect(e) {
+      console.log(e)
+    },
     // 用户名下拉菜单选择事件
     handleCommand(command) {
       if (command == 'loginout') {
@@ -255,12 +298,13 @@ export default {
     }
   },
   mounted() {
-    if (document.body.clientWidth < 1500) {
+    if (document.body.clientWidth < 1600) {
       // this.collapseChage();
     }
   }
 };
 </script>
+
 <style scoped>
 .header {
     position: relative;
@@ -280,8 +324,10 @@ export default {
 
 .header .logo {
     float: left;
-    width: 250px;
+    width: 260px;
     line-height: 70px;
+    text-align: right;
+    padding-right: 10px;
 }
 
 .header-right {
@@ -332,14 +378,13 @@ export default {
 
 .user-avator {
     margin-left: 20px;
-    border: 1px solid #000000;
 }
 
 .user-avator img {
     display: block;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 60%;
 }
 
 .el-dropdown-link {
@@ -353,6 +398,5 @@ export default {
 
 .platform {
     float: left;
-    margin-top: 18px;
 }
 </style>

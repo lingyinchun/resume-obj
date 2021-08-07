@@ -21,16 +21,16 @@ export const constantRoutes = [
     children: [
       {
         path: '/',
-        component: () => import( /* webpackChunkName: "dashboard" */ '../page/VueEditor.vue'),
+        component: () => import( /* webpackChunkName: "dashboard" */ '../page/Dashboard.vue'),
         meta: {
-          title: '系统首页'
+          title: '首页'
         }
       },
       {
-        path: '/BaseCharts',
-        component: () => import( /* webpackChunkName: "dashboard" */ '../page/BaseCharts.vue'),
+        path: '/Dashboard',
+        component: () => import( /* webpackChunkName: "dashboard" */ '../page/Dashboard.vue'),
         meta: {
-          title: 'BaseCharts'
+          title: '首页'
         }
       },
       {
@@ -93,7 +93,7 @@ export function resetRouter() {
 }
 
 const originalPush = Router.prototype.push
-Router.prototype.push = function push (location, onResolve, onReject) {
+Router.prototype.push = function push(location, onResolve, onReject) {
   if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
   return originalPush.call(this, location).catch(err => err)
 }
