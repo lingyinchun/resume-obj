@@ -28,10 +28,43 @@ export const constantRoutes = [
       },
       {
         path: '/Dashboard',
+        name: 'Dashboard',
         component: () => import( /* webpackChunkName: "dashboard" */ '../page/Dashboard.vue'),
         meta: {
           title: '首页'
         }
+      },
+      {
+        path: '/candidate',
+        name: 'candidate',
+        component: () => import( /* webpackChunkName: "home" */ '@/page/candidate/index.vue'),
+        meta: {
+          title: '候选人'
+        },
+      },
+      {
+        path: '/company',
+        name: 'company',
+        component: () => import( /* webpackChunkName: "home" */ '@/page/company/index.vue'),
+        meta: {
+          title: '公司'
+        },
+      },
+      {
+        path: '/contactperson',
+        name: 'contactperson',
+        component: () => import( /* webpackChunkName: "home" */ '@/page/contactperson/index.vue'),
+        meta: {
+          title: '联系人'
+        },
+      },
+      {
+        path: '/position',
+        name: 'position',
+        component: () => import( /* webpackChunkName: "home" */ '@/page/position/index.vue'),
+        meta: {
+          title: '职位'
+        },
       },
       {
         path: '*',
@@ -42,8 +75,7 @@ export const constantRoutes = [
         hidden: true
       },
     ]
-  },
-
+  }
 ]
 
 export const endRoutes = [

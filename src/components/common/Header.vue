@@ -186,7 +186,7 @@ export default {
       }
     }
     return {
-      activeIndex: 'home',
+      activeIndex: 'Dashboard',
       menu: defaultSetting.menu,
       collapse: false,
       fullscreen: false,
@@ -239,6 +239,7 @@ export default {
   },
   methods: {
     handleSelect(e) {
+      this.$router.push({ name: e })
       console.log(e)
     },
     // 用户名下拉菜单选择事件
